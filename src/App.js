@@ -4,9 +4,14 @@ import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react';
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route
+// } from "react-router-dom";
 
 function App() {
-  const [mode, setMode] = useState('light'); // 'light', 'dark', 'blue', 'green', etc.
+  const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -45,14 +50,19 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar title="Sagnik React" mode={mode} changeMode={changeMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
-        {/* <About/> */}
-      </div>
-    </>
+    // <Router>
+      <>
+        <Navbar title="Sagnik React" mode={mode} changeMode={changeMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          {/* <Routes>
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+          </Routes> */}
+          <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
+        </div>
+      </>
+    // </Router>
   );
 }
 
